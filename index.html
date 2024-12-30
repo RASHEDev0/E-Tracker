@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <ul id="tabs">
+            <li class="tab active" data-tracker="moodTracker">Mood Tracker</li>
+            <!-- New tracker tabs will be added here -->
+        </ul>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h1 id="trackerTitle">Mood Tracker</h1>
+            <form id="trackerForm">
+                <label for="day">Day:</label>
+                <select id="day">
+                    <!-- Options for days will be added dynamically by JavaScript -->
+                </select>
+
+                <label for="month">Month:</label>
+                <select id="month">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+
+                <label id="trackerLabel" for="trackerOption">Mood:</label>
+                <select id="trackerOption">
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="angry">Angry</option>
+                    <option value="excited">Excited</option>
+                </select>
+
+                <button type="submit">Save</button>
+            </form>
+            <button id="addTrackerBtn">Add Tracker</button>
+            <!-- New edit tracker button -->
+            <button id="editTrackerBtn" class="EditTracker">Edit Tracker</button>
+        </div>
+        <div class="right" id="trackerContent">
+            <table id="trackerTable">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Jan</th>
+                        <th>Feb</th>
+                        <th>Mar</th>
+                        <th>Apr</th>
+                        <th>May</th>
+                        <th>Jun</th>
+                        <th>Jul</th>
+                        <th>Aug</th>
+                        <th>Sep</th>
+                        <th>Oct</th>
+                        <th>Nov</th>
+                        <th>Dec</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows for days will be added dynamically by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        <!-- Trash icon section -->
+        <div id="trashIconContainer" style="display:none;">
+            <img src="pics/Trash.jpeg" alt="Delete Tracker" id="deleteTrackerBtn" style="cursor:pointer;">
+        </div>
+    </div>
+
+   <!-- Add tracker popup -->
+<div id="trackerPopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Add New Tracker</h2>
+        <form id="newTrackerForm">
+            <label for="trackerName">Tracker Name:</label>
+            <input type="text" id="trackerName" name="trackerName" required>
+
+            <div id="optionsContainer" class="options-container"> <!-- Added class for styling -->
+                <!-- Option inputs will be added dynamically -->
+            </div>
+            
+            <button type="button" id="addOptionBtn">Add Another Option</button>
+            <button type="submit">Save Tracker</button>
+        </form>
+    </div>
+</div>
+
+<!-- Edit tracker popup -->
+<div id="editTrackerPopup" class="popup" style="display:none;">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>Edit Tracker</h2>
+        <form id="editTrackerForm">
+            <label for="editTrackerName">Tracker Name:</label>
+            <input type="text" id="editTrackerName" name="editTrackerName" required>
+
+            <div id="editOptionsContainer" class="options-container"> <!-- Added class for styling -->
+                <!-- Option inputs will be added dynamically -->
+            </div>
+            
+            <button type="button" id="editAddOptionBtn">Add Another Option</button>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>

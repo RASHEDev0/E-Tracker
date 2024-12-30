@@ -1,0 +1,451 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    width: 100%;
+    background-color: #4a90e2;
+    color: white;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.header ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.header ul li.active {
+    background-color: #357ab8;
+    border-bottom: 2px solid white;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.left, .right {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left {
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.right {
+    flex: 2;
+    overflow: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    max-width: 400px;
+}
+
+h1 {
+    color: #4a90e2;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select, button, input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+select {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #0056b3;
+}
+
+button:disabled{
+    background-color: #ccc;
+    cursor:not-allowed
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    width: 7%;
+    height: 30px;
+}
+
+th {
+    background-color: #4a90e2;
+    color: white;
+}
+
+td[data-mood="happy"] {
+    background-color: orange;
+}
+
+td[data-mood="sad"] {
+    background-color: gray;
+}
+
+td[data-mood="neutral"] {
+    background-color: lightblue;
+}
+
+td[data-mood="angry"] {
+    background-color: red;
+}
+
+td[data-mood="excited"] {
+    background-color: yellow;
+}
+
+#addTrackerBtn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 30%;
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.EditTracker{
+    position: absolute;
+    top: 10px;
+    left: 1px;
+    width: 15%;
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+#addTrackerBtn:hover {
+    background-color: #357ab8;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow of the entire popup */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.popup-content h2 {
+    margin-top: 0;
+}
+
+.popup-content .close {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.popup .close {
+    position: absolute;
+    top: 40px;
+    right: 70px;
+    font-size: 60px;
+    color: red;
+    cursor: pointer;
+}
+
+/* Styles for the dropdown inputs next to each option */
+#optionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#optionsContainer > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#optionsContainer input[type="text"] {
+    width: 60%;
+}
+
+.options-container {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 15px; /* Add padding to ensure scrollbar doesn't overlap content */
+    box-sizing: border-box;
+}
+
+#optionsContainer select {
+    width: 40%;
+    padding: 8px;
+}
+
+#trashIconContainer {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+}
+
+#deleteTrackerBtn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#deleteTrackerBtn:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+    .header ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .header ul li {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .left, .right {
+        width: 100%;
+    }
+
+    .popup-content {
+        width: 90%;
+        max-height: 80%;
+        padding: 10px;
+    }
+
+    .options-container {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .table-container {
+        overflow-x: auto; /* Add horizontal scroll */
+        -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
+    }
+
+    table {
+        font-size: 14px; /* Increase font size for readability */
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px; /* Increase padding for better touch interaction */
+        text-align: center;
+    }
+}
+
+/* Media query for medium screens */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .header ul {
+        padding: 0;
+    }
+
+    .header ul li {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    .left, .right {
+        width: 100%;
+    }
+
+    .popup-content {
+        width: 80%;
+        max-height: 80%;
+        padding: 20px;
+    }
+
+    .options-container {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: center;
+    }
+}
+
+/* Media query for small screens with height below 850px */
+@media (max-height: 850px) {
+    html, body {
+        height: 100%;
+        overflow: auto; /* Enable scrolling for the entire page */
+    }
+
+    .container {
+        height: auto;
+        max-height: none; /* Allow the container to grow beyond the screen height */
+        padding: 10px;
+        overflow: auto; /* Ensure the container itself is scrollable */
+    }
+
+    .left, .right {
+        height: auto;
+        overflow: auto; /* Ensure both sections are scrollable */
+    }
+
+    .table-container {
+        overflow-x: auto;
+        overflow-y: visible; /* Ensure vertical scrolling within the table container */
+    }
+
+    table {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: center;
+    }
+
+    .popup-content {
+        max-height: 80%; /* Ensure popups remain within the screen */
+        overflow-y: auto;
+    }
+}
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+    .button-container {
+        display: flex;
+        flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
+        gap: 10px; /* Add space between buttons */
+        justify-content: center; /* Center the buttons */
+    }
+
+    button {
+        flex: 1 1 auto; /* Allow buttons to grow and shrink as needed */
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+}
